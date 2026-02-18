@@ -1,0 +1,786 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+**Descriptive Statistics**
+Load epiDisplay package for the tab1 function.
+*Gender*
+```{r}
+tab1(BIL$Gender, graph = FALSE)
+tab1(BIL$GenderCategorical, graph = FALSE)
+tab1(BIL$EducationCategorical, graph = FALSE)
+```
+*Race*
+```{r}
+tab1(BIL$Race, graph = FALSE)
+tab1(BIL$RaceCategorical, graph = FALSE)
+
+```
+*Ethnicity*
+```{r}
+tab1(BIL$Ethnicity, graph = FALSE)
+tab1(BIL$EthnicityCategorical, graph = FALSE)
+```
+*Education Level*
+```{r}
+tab1(BIL$Educ, graph = FALSE)
+tab1(BIL$EducationCategorical, graph = FALSE)
+```
+*Marital Status*
+```{r}
+tab1(BIL$Marital, graph = FALSE)
+tab1(BIL$MarriedCategorical, graph = FALSE)
+```
+*Utah Residental Status*
+```{r}
+tab1(BIL$Utah, graph = FALSE)
+
+```
+
+
+
+```{r}
+mean(BIL$Income_1, na.rm=TRUE)
+sd(BIL$Income_1, na.rm=TRUE)
+```
+
+
+
+Female/Male (Gender)
+Utah/NotUtah (Utah)
+White/nonWhite (White)
+
+**Differences Female/Male Intrinsic Rewards (Gender)**
+
+Interesting Job (JobCharacteristics_4)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_4, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_4, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_4~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_4, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_4~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+
+```
+
+Job autonomy (JobCharacteristics_5)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_5, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_5, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_5~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_5, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_5~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Help Others (JobCharacteristics_6)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_6, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_6, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_6~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_6, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_6~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Job useful to society (JobCharacteristics_7)
+
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_7, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_7, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_7~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_7, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_7~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+Job satisfaction (JobSat)
+```{r}
+#mean of whole sample
+mean(BIL$JobSat, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobSat, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobSat~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobSat, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobSat~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+
+
+**Differences / Extrinsic Rewards ()**
+
+Income in $1000's (Income_1)
+```{r}
+#mean of whole sample
+mean(BIL$Income_1, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$Income_1, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$Income_1~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$Income_1, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$Income_1~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Perception of Income (JobCharacteristics_2)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_2, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_2, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_2~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_2, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_2~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Job security (JobCharacteristics_1)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_1, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_1, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_1~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_1, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_1~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Promotional opportunities (JobCharacteristics_3)
+```{r}
+#mean of whole sample
+mean(BIL$JobCharacteristics_3, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$JobCharacteristics_3, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$JobCharacteristics_3~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$JobCharacteristics_3, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$JobCharacteristics_3~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+
+
+**Differences / Work Quality ()**
+
+Job engagement (Eng_1)
+```{r}
+#mean of whole sample
+mean(BIL$Eng_1, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$Eng_1, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$Eng_1~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$Eng_1, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$Eng_1~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+Meaningful career (MW_PM_1)
+```{r}
+#mean of whole sample
+mean(BIL$MW_PM_1, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$MW_PM_1, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$MW_PM_1~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$MW_PM_1, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$MW_PM_1~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Organizational commitment (Comm_1)
+```{r}
+#mean of whole sample
+mean(BIL$Comm_1, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$Comm_1, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$Comm_1~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$Comm_1, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$Comm_1~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+Student's Choice 1 (BirthYear)
+```{r}
+#mean of whole sample
+mean(BIL$BirthYear, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$BirthYear, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$BirthYear~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$BirthYear, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$BirthYear~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Student's Choice 2 (YearsOld)
+```{r}
+#mean of whole sample
+mean(BIL$YearsOld, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$YearsOld, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$YearsOld~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$YearsOld, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$YearsOld~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Student's Choice 3 (EqualityValue)
+```{r}
+#mean of whole sample
+mean(BIL$EqualityValue, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$EqualityValue, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$EqualityValue~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$EqualityValue, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$EqualityValue~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+Student's Choice 4 (SafeConditions_2)
+```{r}
+#mean of whole sample
+mean(BIL$SafeConditions_2, na.rm=TRUE)
+
+#standard deviation of whole sample
+sd(BIL$SafeConditions_2, na.rm=TRUE)
+
+#differences of means test
+t.test(BIL$SafeConditions_2~BIL$GenderCategorical, mu = 0, alternative = "two.sided")
+
+#standard deviation for Male and Female subsets
+tapply(BIL$SafeConditions_2, BIL$GenderCategorical, sd, na.rm=TRUE)
+
+#differences of variation test
+var.test(BIL$SafeConditions_2~BIL$GenderCategorical, ratio = 1, alternative = "two.sided")
+```
+
+
+
+
+
+
+**Proportions for Whole Sample**
+```{r}
+tab1(BIL$HighIncome, graph = FALSE)
+```
+
+
+**Married or Cohabitating vs Single (Married)**
+
+Income above $100,000 (HighIncome)
+```{r}
+MarriedHighIncome <- table(BIL$MarriedCategorical, BIL$HighIncome)
+MarriedHighIncome <- addmargins(MarriedHighIncome)
+MarriedHighIncome
+prop.test(x = c(139, 42), n = c(353, 206), correct = F, alternative = "two.sided")
+sqrt(21.422052)
+```
+
+College Degree (CollegeDegree)
+```{r}
+tab1(BIL$CollegeDegree, graph = FALSE)
+
+
+MarriedCollegeDegree <- table(BIL$MarriedCategorical, BIL$CollegeDegree)
+MarriedCollegeDegree <- addmargins(MarriedCollegeDegree)
+MarriedCollegeDegree
+prop.test(x = c(226, 85), n = c(353, 206), correct = F, alternative = "two.sided")
+sqrt(27.302744)
+
+```
+
+
+In Sales or Business Development (SAL, 1 Yes, 2 No)
+```{r}
+tab1(BIL$SAL, graph = FALSE)
+
+
+MarriedSAL <- table(BIL$MarriedCategorical, BIL$SAL)
+MarriedSAL <- addmargins(MarriedSAL)
+MarriedSAL
+prop.test(x = c(71, 40), n = c(350, 206), correct = F, alternative = "two.sided")
+sqrt(.0435)
+```
+
+
+More than 10 years in organization (OrgYearsMoreThanTen)
+```{r}
+
+tab1(BIL$OrgYearsMoreThanTen, graph = FALSE)
+
+
+MarriedOrgYears_table <- table(BIL$MarriedCategorical, BIL$OrgYearsMoreThanTen)
+
+
+MarriedOrgYears_table <- addmargins(MarriedOrgYears_table)
+
+
+MarriedOrgYears_table
+
+
+prop.test(x = c(111, 49), n = c(349, 206), correct = F)
+
+
+sqrt(4.4969)
+
+```
+
+
+Student Choice (SafeConditions_2)
+```{r}
+tab1(BIL$SafeConditions_2, graph = FALSE)
+
+
+MarriedSafeConditions_2 <- table(BIL$MarriedCategorical, BIL$SafeConditions_2)
+
+
+MarriedSafeConditions_2 <- addmargins(MarriedSafeConditions_2)
+
+
+MarriedSafeConditions_2
+
+
+prop.test(x = c(244, 125), n = c(353, 206), correct = F)
+
+
+sqrt(4.1322366)
+```
+
+
+
+
+**Subsetting Female Respondents**
+```{r}
+#Create a subset of only female respondents
+Female <- subset(BIL, Gender == 1)
+```
+
+
+
+**Proportions Female in Utah and Female not in Utah**
+```{r}
+#Income above $100,000
+FemaleUtahHighIncome <- table(Female$Utah, Female$HighIncome)
+FemaleUtahHighIncome <- addmargins(FemaleUtahHighIncome)
+FemaleUtahHighIncome
+prop.test(x = c(20, 55), n = c(111, 191), correct = F, alternative = "two.sided")
+sqrt(4.3685357)
+
+```
+
+
+
+
+
+-----
+
+**MGMT 3345 Unit 2 Project**
+
+**STEP 1: TESTS OF INDEPENDENCE**
+
+**Q1** Is there a relationship between gender (GenderCategorical) and the opportunity to learn and grow in a job (Engagement_Q12_12)?
+
+```{r}
+Step1Q1 <- table(BIL$GenderCategorical, BIL$Engagement_Q12_12)
+Step1Q1
+
+chisq.test(Step1Q1 [, 1 : 5], correct = F)
+
+```
+There is a relationship between Gender and Engagment.
+
+**Q2** Is there a relationship between gender (GenderCategorical) and their position or leadership role in the organization (Position)?
+
+```{r}
+Step1Q2 <- table(BIL$GenderCategorical, BIL$Position)
+Step1Q2
+chisq.test(Step1Q2 [, 1 : 6], correct = F)
+
+```
+
+There is a relationship between Gender and Position
+
+**Q3** Student’s Choice (how would you describe relations at your workplace... - ... between management and employees?. WorkRelations_1)
+
+```{r}
+Step1Q3 <- table(BIL$RaceCategorical, BIL$WorkRelations_1)
+Step1Q3
+chisq.test(Step1Q3 [, 1 : 5], correct = F)
+```
+
+There is not a relationship between Race and how In general, "how would you describe relations at your workplace... - ... between management and employees?"
+
+
+**Q4** Student’s Choice (Please indicate the extent to which you agree or disagree with each statement. - My supervisor shows trust in me. EmpatLead_5)
+
+```{r}
+Step1Q4 <- table(BIL$RaceCategorical, BIL$EmpatLead_5)
+Step1Q4
+chisq.test(Step1Q4 [, 1 : 7], correct = F)
+```
+
+
+There is not a relationship between race and My supervisor shows trust in me.
+
+
+**STEP 2: ONE-WAY ANOVA**
+
+
+**Q1** Are there differences in average job satisfaction (JobSat) among the differing age brackets (Generation)? If so, identify which age brackets differ and provide their corresponding confidence intervals.
+```{r}
+AnovaJobSatGeneration <- aov(JobSat ~ Generation, data = BIL)
+anova(AnovaJobSatGeneration)
+```
+
+
+**Q2** Student’s Choice (EmpatLead_3) Please indicate the extent to which you agree or disagree with each statement. - My supervisor shows concern about my job satisfaction. Based off race (RaceCategorical)
+```{r}
+AnovaEmpatLead_3RaceCategorical <- aov(EmpatLead_3 ~ RaceCategorical, data = BIL)
+anova(AnovaEmpatLead_3RaceCategorical)
+```
+
+
+**Q3** Student’s Choice (RaceCategorical) , ILAvail_4 Please indicate the extent to which YOUR LEADER displays the following behaviors. - My leader is ready to listen to my requests.
+
+
+```{r}
+AnovaILAvail_4RaceCategorical <- aov(ILAvail_4 ~ RaceCategorical, data = BIL)
+anova(AnovaILAvail_4RaceCategorical)
+```
+
+
+**STEP 3: TWO-WAY ANOVA (without interaction)**
+
+
+**Q1**: Are there differences in average job satisfaction (JobSat) among the differing age brackets (Generation) and current work arrangement (CurrWA)? If so, identify which age brackets or work arrangements differ and provide their corresponding confidence intervals.
+
+
+```{r}
+Anova2Step3Q1 <- aov(JobSat ~  Generation + CurrWA, data=BIL)
+anova(Anova2Step3Q1)
+
+```
+
+
+**Q2** Student’s Choice (Include research question and the name of the variables.)(PreCovidWA), (RaceCategorical), (ILAvail_4), Please indicate the extent to which YOUR LEADER displays the following behaviors. - My leader is ready to listen to my requests.
+
+
+```{r}
+Anova2Step3Q2 <- aov(ILAvail_4 ~  RaceCategorical + PreCovidWA, data=BIL)
+anova(Anova2Step3Q2)
+```
+
+
+
+**Q3** Student’s Choice (JobCharacteristics_5)For each of these statements about your job, please identify how much you agree or disagree that each applies to YOUR JOB. - I can work independently.(GenderCategorical), (PreCovidWA)
+
+
+```{r}
+Anova2Step3Q3 <- aov(JobCharacteristics_5 ~  GenderCategorical + PreCovidWA, data=BIL)
+anova(Anova2Step3Q3)
+```
+
+
+
+**STEP 4: TWO-WAY ANOVA (with interaction)**
+
+**Q1** Is there an interaction in average job satisfaction (JobSat) among the differing age brackets (Generation) and current work arrangement (CurrWA)?
+
+```{r}
+Anova3Step4Q1 <- aov(JobSat ~ Generation*CurrWA, data=BIL)
+anova(Anova3Step4Q1)
+
+```
+
+
+
+**Q2** Student’s Choice (EmpatLead_5), Please indicate the extent to which you agree or disagree with each statement. - My supervisor shows trust in me.(RaceCategorical), (Title)
+
+
+```{r}
+Anova3Step4Q2 <- aov(EmpatLead_5 ~ RaceCategorical*Title, data=BIL)
+anova(Anova3Step4Q2)
+```
+
+
+
+**Q3** Student’s Choice My supervisor shows trust in me (EmpatLead_5), (GenderCategorica), (Title)
+
+```{r}
+Anova3Step4Q3 <- aov(EmpatLead_5 ~ GenderCategorical*Title, data=BIL)
+anova(Anova3Step4Q3)
+```
+
+
+
+
+----
+
+
+**MGMT 3345 Unit 3 Project**
+
+```{r}
+options(scipen=999)
+options(digits=10)
+```
+
+**STEP 1**
+Create subsets for your two chosen groups:
+```{r}
+White <- subset(BIL, White == 1)
+NonWhite  <- subset(BIL, White == 0)
+```
+
+
+Eng_1	Overall, how engaged are you in your (main) job? - Work Engagement
+
+SafeConditions_1 , 	Please indicate the extent to which you agree or disagree with each statement. - I feel emotionally safe interacting with people at work.
+
+AdeqComp_3 , 	Please indicate the extent to which you agree or disagree with each statement. - I am rewarded adequately for my work.
+
+FreeTime_Rest_2	, Please indicate the extent to which you agree or disagree with each statement. - I have no time to rest during the work week.
+
+NSM_6	 , "My manager/supervisor/work unit leader... - … makes sure I understand the purpose of my work."
+
+Eng_1	Overall, how engaged are you in your (main) job? - Work Engagement
+
+Indignity	, I suffer indignity at work. (Indignity_1 + Indignity_2 + Indignity_3 + Indignity_4)  (1) strongly disagree to (10) strongly agree
+
+
+
+
+
+**STEP 2**
+Check for the no multicollinearity assumption by creating a correlation coefficient chart of all your added predictor variables.
+
+Load corrplot package.
+```{r}
+#Correlation Coefficient Heat Map
+JobSatVariablesWhite <- data.frame( White$SafeConditions_1 , White$Eng_1 , White$AdeqComp_3 , White$FreeTime_Rest_2 , White$NSM_6, White$Indignity)
+correl<-corrplot(cor(as.matrix(JobSatVariablesWhite), use = "complete.obs", method = "pearson"),
+                 method = "color",
+                  tl.cex = 0.5,
+                 number.cex = 0.5,
+                 addCoef.col = "black")
+```
+
+
+
+```{r}
+#Correlation Coefficient Heat Map
+JobSatVariablesNonWhite <- data.frame( NonWhite$SafeConditions_1 , NonWhite$Eng_1 , NonWhite$AdeqComp_3 , NonWhite$FreeTime_Rest_2 , NonWhite$NSM_6, NonWhite$Indignity)
+correl<-corrplot(cor(as.matrix(JobSatVariablesNonWhite), use = "complete.obs", method = "pearson"),
+                 method = "color",
+                  tl.cex = 0.5,
+                 number.cex = 0.5,
+                 addCoef.col = "black")
+```
+
+
+
+
+
+**STEP 3**
+**First Group JobSat Regression Model**
+```{r}
+WhiteLinearProbModel <- lm(JobSat ~ YearsOld + Utah  + Married + Gender + Educ + log(OrgSize +1) + Income_1 + SAL + WorkExp + SafeConditions_1 + Eng_1 + AdeqComp_3 + FreeTime_Rest_2 + NSM_6 +Indignity  , data = White)
+summary(WhiteLinearProbModel)
+
+```
+0.6138574 
+Load broom package
+```{r}
+#Regression Output Table
+tidy(summary(WhiteLinearProbModel))
+
+#Confidence Intervals Table
+confint_tidy(WhiteLinearProbModel, conf.level = 0.95)
+```
+
+
+**Second Group JobSat Regression Model**
+```{r}
+NonWhiteLinearProbModel <- lm(JobSat ~ YearsOld + Utah  + Married + Gender + Educ + log(OrgSize +1) + Income_1 + SAL + WorkExp + SafeConditions_1 + Eng_1 + AdeqComp_3 + FreeTime_Rest_2 + NSM_6 +Indignity  , data = NonWhite)
+summary(NonWhiteLinearProbModel)
+```
+
+Load broom package
+```{r}
+#Regression Output Table
+tidy(summary(NonWhiteLinearProbModel))
+
+#Confidence Intervals Table
+confint_tidy(NonWhiteLinearProbModel, conf.level = 0.95)
+```
+
+
+
+**STEP 4**
+
+**Logistic Regression**
+Does not worry at all coded as 0, any level of worry coded as 1.
+```{r}
+White$DummyEmployability1 <- ifelse(White$Employability1 == "4", 0, 1)
+NonWhite$DummyEmployability1 <- ifelse(NonWhite$Employability1 == "4", 0, 1)
+```
+
+
+**First Group Worry Logistic Model**
+```{r}
+WhiteWorry <- glm(DummyEmployability1 ~ YearsOld + Utah  + Married + Gender + Educ + log(OrgSize +1) + Income_1 + SAL + WorkExp + SafeConditions_1 + Eng_1 + AdeqComp_3 + FreeTime_Rest_2 + NSM_6 +Indignity, family = binomial, data = White)
+summary(WhiteWorry)
+
+```
+
+```{r}
+#Logistic Regression Output in a Table
+tidy(WhiteWorry, conf.int = FALSE, conf.level = 0.95, exponentiate = FALSE)
+
+#PseudoR2
+PseudoR2(WhiteWorry, which = "all")
+
+#% Change in Odds Table
+tidy((exp(coef(WhiteWorry))-1) * 100)
+```
+
+
+
+
+**Second Group Worry Logistic Model**
+```{r}
+NonWhiteWorry <- glm(DummyEmployability1 ~ YearsOld + Utah  + Married + Gender + Educ + log(OrgSize +1) + Income_1 + SAL + WorkExp + SafeConditions_1 + Eng_1 + AdeqComp_3 + FreeTime_Rest_2 + NSM_6 +Indignity, family = binomial, data = NonWhite)
+summary(NonWhiteWorry)
+```
+
+```{r}
+#Logistic Regression Output in a Table
+tidy(NonWhiteWorry, conf.int = FALSE, conf.level = 0.95, exponentiate = FALSE)
+
+#PseudoR2
+PseudoR2(NonWhiteWorry, which = "all")
+
+#% Change in Odds Table
+tidy((exp(coef(NonWhiteWorry))-1) * 100)
+```
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
